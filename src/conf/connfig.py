@@ -14,8 +14,11 @@ ALGORITHM = os.getenv("ALGORITHM")
 
 
 class Config:
-	PG_URL = f"postgresql+asyncpg://{PG_USER}:{PG_PASSWORD}@{PG_HOST}:{PG_PORT}/{PG_NAME}"
-	SECRET_KEY = SECRET_KEY
-	ALGORITHM = ALGORITHM
+    PG_URL = (
+        f"postgresql+asyncpg://{PG_USER}:{PG_PASSWORD}@{PG_HOST}:{PG_PORT}/{PG_NAME}"
+    )
+    SECRET_KEY = SECRET_KEY
+    ALGORITHM = ALGORITHM
+
 
 config = Config
