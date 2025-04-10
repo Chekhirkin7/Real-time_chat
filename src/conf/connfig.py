@@ -12,6 +12,12 @@ PG_NAME = os.getenv("PG_NAME")
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = os.getenv("ALGORITHM")
 
+MAIL_USERNAME = os.getenv("MAIL_USERNAME")
+MAIL_PASSWORD = os.getenv("MAIL_PASSWORD")
+MAIL_FROM = os.getenv("MAIL_FROM")
+MAIL_PORT = os.getenv("MAIL_PORT")
+MAIL_SERVER = os.getenv("MAIL_SERVER")
+
 
 class Config:
     PG_URL = (
@@ -19,6 +25,12 @@ class Config:
     )
     SECRET_KEY = SECRET_KEY
     ALGORITHM = ALGORITHM
+
+    MAIL_SERVER = MAIL_SERVER
+    MAIL_PORT = MAIL_PORT
+    MAIL_FROM = MAIL_FROM
+    MAIL_PASSWORD = MAIL_PASSWORD
+    MAIL_USERNAME = MAIL_USERNAME
 
 
 config = Config

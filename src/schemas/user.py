@@ -28,3 +28,7 @@ class TokenSchema(BaseModel):
 class LoginRequest(BaseModel):
     email: EmailStr
     password: str
+
+
+class RequestEmail(BaseModel):
+    email: EmailStr
