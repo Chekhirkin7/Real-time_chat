@@ -1,6 +1,5 @@
 FROM python:3.13.2
 
-# Оновлюємо пакунки та встановлюємо залежності для Poetry
 RUN apt-get update && apt-get install -y \
     curl \
     build-essential \
@@ -27,7 +26,7 @@ WORKDIR /app
 
 COPY pyproject.toml poetry.lock /app/
 
-RUN poetry install
+RUN poetry install --no-root
 
 COPY . /app/
 
