@@ -46,14 +46,16 @@ async def signup(
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT, detail="Username is already in use."
         )
-    body.password = auth_service.hash_password(body.password)
+    # body.password = auth_service.hash_password(body.password)
     new_user = await repositories_users.create_user(body, db)
     bt.add_task(send_email, new_user.email, str(request.base_url))
     return new_user
 
 
 @router.post("/login", response_model=TokenSchema)
-async def login(body, db: AsyncSession = Depends(get_db)):
+async def login(
+    body: OAuth2PasswordRequestForm = Depends(), db: AsyncSession = Depends(get_db)
+):
     user = await repositories_users.get_user_by_email(body.username, db)
     if user is None:
         raise HTTPException(

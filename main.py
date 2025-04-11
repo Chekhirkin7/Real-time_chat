@@ -2,11 +2,12 @@ from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 from src.database.db import get_db
-from src.routes import auth
+from src.routes import auth, chat
 
 app = FastAPI()
 
 app.include_router(auth.router, prefix="/api")
+app.include_router(chat.router, prefix="/api")
 
 @app.get("/")
 def index():
